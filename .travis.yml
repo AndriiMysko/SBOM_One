@@ -14,7 +14,7 @@ jobs:
       script:
         - echo $TRAVIS_BUILD_DIR
         - mkdir -p $TRAVIS_BUILD_DIR/sbom-568961
-        - MSYS_NO_PATHCONV=1 docker run --mount type=bind,source=$TRAVIS_BUILD_DIR,target=/app --mount type=bind,source=$TRAVIS_BUILD_DIR/sbom-568961,target=/structured_sbom_outputs us-east4-docker.pkg.dev/travis-ci-prod-services-1/travis/sbom:c0a5eec-initial_implementation_am cyclonedx-xml /structured_sbom_outputs /
+        - MSYS_NO_PATHCONV=1 docker run --mount type=bind,source=/$TRAVIS_BUILD_DIR,target=/app --mount type=bind,source=$TRAVIS_BUILD_DIR/sbom-568961,target=/structured_sbom_outputs us-east4-docker.pkg.dev/travis-ci-prod-services-1/travis/sbom:c0a5eec-initial_implementation_am cyclonedx-xml /structured_sbom_outputs /
         - cd go
         - go build
         
